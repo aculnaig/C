@@ -10,21 +10,20 @@
 
 main()
 {
-    int word_count = 0;
     int words_length[WORDS];
 
     for (int i = 0; i < WORDS; ++i)
         words_length[i] = 0;
 
-    for (int c = 0; (word_count < WORDS) && (c != EOF); c = getchar())
+    for (int c = 0, i = 0; (i < WORDS) && (c != EOF); c = getchar())
     {
          if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
-            ++words_length[word_count];
+            ++words_length[i];
          else if (c == '\n')
-            ++word_count;
+            ++i;
     }
 
-    for (int i = 0; i < word_count; ++i)
+    for (int i = 0; words_length[i] != 0; ++i)
     {
         for (int j = 0; j < words_length[i]; ++j)
         {
